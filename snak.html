@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<header class="app-header">
+			<span class="incofont icon-menu"></span>
+			<h1 class="title">{this.props.title}</h1>
+			<Link class="city iconfont" to="city-list">深圳<em></em></Link>
+			<Link class="iconfont icon-person" to="/my">深圳<em></em></Link>
+		</header>
+		
+		<div class="side">
+			<div class="cover">
+				<nav class="sidebar">
+					{
+						data.map((item,index)=>{
+							return <a key={index} onClick={this.goPage.bind(this,tiem)}>{item.title}</a>
+						})
+					}
+				</nav>
+			</div>
+		</div>
+		
+	</body>
+</html>

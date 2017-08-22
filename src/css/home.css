@@ -1,0 +1,49 @@
+#home .home-banner{
+	width: 100%;
+	display: block;
+	overflow: hidden;
+		
+}
+#home .home-banner .swiper-wrapper{
+	width: 300%;
+}
+#home .home-banner .swiper-silde{
+	width: 100%;
+    position: relative;
+    top: 0;
+    left: 0;
+    display: block;
+}
+#home .home-banner .swiper-silde img{
+    width: 100%;
+/*	display: block;
+	float: left;*/
+}
+.main1,.main2{
+	padding: 10px;
+	width: 100%;
+	box-sizing: border-box;
+}
+
+#home .main img{
+    width: 100%;
+    box-sizing: border-box;
+}
+#home .main .mvTitle{
+	height: 30px;
+	position: relative;
+	padding: 3px 0 ;	 
+}
+#home .main .mvTitle p{
+	text-indent: 10px;    
+}
+#home .main .mvTitle span{
+	position: absolute;
+	right: 10px;
+	top:15px;
+	font-size: 20px;
+	color: #f60;    
+}
+
+
+

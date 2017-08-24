@@ -3,7 +3,6 @@ import ReactSwipe from 'react-swipe'
 
 import homeService from '../services/homeService.js'
 
-
 import '../css/home.css'
 
 let bannerSwiper ;

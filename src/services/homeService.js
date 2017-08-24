@@ -30,6 +30,20 @@ function getnowPlaying(){
 	})	
 }
 
+//正在热播主页
+function getnowPlaying2(){
+	return new Promise((resolve,reject)=>{
+		axios.get(`${API.nowPlayingApi}?page=2&count=7`)
+		
+		.then((response)=>{
+			resolve(response.data.data.films)
+		})
+		.catch((error)=>{
+			console.log(error)
+		})
+	})	
+}
+
 
 //即将上映
 function getcomingSoon(){
@@ -45,13 +59,55 @@ function getcomingSoon(){
 	})
 	
 }
+//即将上映主页
+function getcomingSoon2(){
+	return new Promise((resolve,reject)=>{
+		axios.get(`${API.comingSoonApi}?page=2&count=7`)
+		
+		.then((response)=>{
+			resolve(response.data.data.films)
+		})
+		.catch((error)=>{
+			console.log(error)
+		})
+	})
+	
+}
 
+//电影院位置
+function getCinema(){
+	return new Promise((resolve,reject)=>{
+		axios.get(`${API.cinemaApi}?__t=${new Date().getTime()}`)
+		
+		.then((response)=>{
+			resolve(response.data.cinemas)
+		})
+		.catch((error)=>{
+			console.log(error)
+		})
+	})
+	
+}
 //地址请求
 function getCity(){
 	return new Promise((resolve,reject)=>{
 		axios.get(`${API.cityApi}?__t=${new Date().getTime()}`)
 		.then((response)=>{
-			resolve(response.data.data.cities)
+			let arr = [];
+			for(var i=0;i<26;i++){
+				let obj = {};
+				let char = String.fromCharCode(i+65);
+				let arr1 = [];
+				obj.title = char ; 
+				let citys = response.data.data.cities.map((item,index)=>{
+					if(char==item.pinyin[0]){
+						arr1.push(item);
+						obj.citys = arr1
+					}
+				})
+				arr.push(obj);
+			}
+			 resolve(arr)
 		})
 		.catch((error)=>{
 			console.log(error)
@@ -63,7 +119,13 @@ function getCity(){
 export default {
 	getHomeBanner,
 	getnowPlaying,
+	getnowPlaying2,
 	getcomingSoon,
-	getCity	
+	getcomingSoon2,
+	getCinema,
+	getCity
+	
 }
+
+
 

@@ -3,6 +3,7 @@ html, body, #app{
 	height: 100%;
 	touch-action: none;
 }
+h1,h2,h3,h4,h5,h6,p,ul,dl,dd,b,strong,i,em{font-weight:normal; font-style:normal; }
 
 .app-header{
 	display: flex;
@@ -89,7 +90,6 @@ html, body, #app{
 	top: 51px;
 	bottom: 0;
 	left: 0;
-
 }
 .arrowDown{
 	display: inline-block;
@@ -127,21 +127,122 @@ html, body, #app{
 	transition: 0.4s;
 }
 
-#city.page{
-	
-	background: lawngreen;
-}
+
 #city{
-	box-sizing: border-box;
-	margin-top: 50px;
+	width: 100%;
+	flex: 1;
+	
 	overflow: hidden;
-	display: flex;
-	flex-flow: wrap;	
 }
 #city .citys{
 	display:inline-block;
 	width: 25%;
 	text-align: center;
 	line-height: 40px;
+}
+
+#root {
+	height: 100%;
+	overflow: hidden;
+	display: flex;
+	flex-direction: column;
+}
+#city .cityGroup h1{
+	height: 40px;
+	background:#ebebeb ;
+	font-size: 16px;
+	font-weight: normal;
+	line-height: 40px;
+	text-indent: 20px;	
+}
+#city .cityGroup a{
+	height: 45px;
+	background:#fff ;
+	font-size: 16px;
+	line-height: 45px;
+	text-indent: 20px;	
+	border-bottom: 0.5px solid #ebebeb;
+}
+/*电影*/
+#movie{
+	padding: 0 20px ;
+	box-sizing: border-box;
+}
+#movie .playTabs{
+	position: relative;
+	z-index: 10;
+	display: flex;
+	height: 46px;
+	line-height: 46px;	
+    margin: 0 auto;
+    background: #fff;
+    overflow: hidden;
+    border-bottom: solid #fe6e00 1px;
+}
+#movie .playTabs a{
+	flex: 1;
+	text-align: center;
+}
+#movie .active{
+	color: #f60;
+	border-bottom: 3px solid #f60;
 	
+}
+#movie .pageM{
+	width: 100%;
+	padding: 15px 20px ;
+	box-sizing: border-box;
+	position: absolute;
+	top: 46px;
+	bottom: 0;
+	left: 0;
+}
+#movie .movieBox{
+    width: 100%;
+    box-sizing: border-box;
+    padding: 20px 0;
+    border-bottom: dashed 1px #c9c9c9;
+    cursor: pointer;
+   	display: flex;   	   	
+}
+#movie .movieBox .mImg{
+	width: 60px;	
+}
+
+#movie .movieBox .mImg img{
+	width: 100%;
+}
+#movie .movieBox .mInfo{
+	margin-left: 20px;
+	font-size: 12px;
+	font-weight: normal;
+	line-height: 30px;
+	color: #8e8e8e;
+}
+#movie .movieBox .mInfo h3{
+	color: #000;
+	font-size: 16px;
+}
+#movie .movieBox .mInfo strong{
+	color: #f60;
+}
+#movie .movieBox .mInfo span{
+	margin-right: 40px;
+}
+
+.arrowRight{
+	display: inline-block;
+}
+.arrowRight:after {
+    content: '';
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-top: 1px solid #f60;
+    border-right: 1px solid #f60;
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+}
+#movie .movieBox .mInfo .starM{
+	float: right;	
 }

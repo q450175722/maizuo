@@ -15,7 +15,7 @@ export default class AppHeader extends Component{
 				<Link class="iconfont icon-person" to="/my"></Link>
 			
 			</header >
-		)
+		) 
 	}
 	
 	menuAction(){

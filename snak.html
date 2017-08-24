@@ -25,5 +25,43 @@
 			</div>
 		</div>
 		
+		
+		<div class="main">
+			<ul>
+				{
+					data.map((item,index)=>{
+						return <li key={index} onClick={this.goPage.bind(this,tiem)}>{item.title}</li>
+					})
+				}
+				
+			</ul>
+		</div>
+		
+		<div class="movieBox">
+			<img src="{}"/>
+			<div class="mImg"></div>
+			<div class="mInfo">
+				<h3>战狼</h3>
+				<p>撒回复忌口sad富士达发来看见</p>
+				<span>jijia</span>
+				<span>销量</span>
+				<strong>8.3<em class="arrowRight"></em></strong>
+			</div>
+			
+		</div>
+		
+		<div class="cinemaBox">
+			
+				<div><span>战狼</span><em>座</em><i>通</i><div>
+				<p>撒回复忌口sad富士达发来看见</p>
+				<div class="lab"><span>可乐爆米花</span><span>优惠活动</span></div>
+				<span>距离</span>
+			
+		</div>
+		
+		
+		
+		
+		
 	</body>
 </html>

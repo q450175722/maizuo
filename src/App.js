@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import {BrowserRouter as Browser , Route} from 'react-router-dom'
+import {HashRouter as Browser , Route} from 'react-router-dom'
 
 
 import AppHeader from './views/common/AppHeader.js'

@@ -11,36 +11,99 @@ export default class City extends Component{
 		super();
 		
 		this.state = {
+			
 			cityData:[],
 			className: '',
+			
 			history
 			
 		}
 	}
-
 	
 	render(){
-		console.log(this.state.cityData);
-		let cityList = this.state.cityData?this.state.cityData.map((item,index)=>{
+		
+		let cityTitle = this.state.cityData.map((item0,index0)=>{
+			
 			return (
-				<a key={index} class="citys" >
-					
-						<span onClick={this.selectAction.bind(this,index)}>{item.name}</span>
-					
+				<a key={index0} class="citys" >
+					<span onClick={this.scroll.bind(this,index0)}>{item0.title}</span>
 				</a>
+			)		
+		
+		})
+
+		
+		let cityList = this.state.cityData?this.state.cityData.map((item,index)=>{
+			if(item.citys){
+			return (
+				<div key={index} class="cityGroup"  ref={'city'+index}>
+					<h1>{item.title}</h1>
+					<div class="cityss" >
+						{
+							item.citys.map((item1,index1)=>{
+								
+									return (
+										<a key={index1} class="citys" >
+											<span onClick={this.selectAction.bind(this,item1.name)}>{item1.name}</span>
+										</a>
+									)
+								
+							})
+						}
+						
+					</div>
+					
+				</div>
 			)
+			}
 		}):'';
+		
 		
 		return (
 			
-			<div id="city" ref='citySc'>
-				<div>
-					{cityList}
-				</div>
-			</div>
+				<div id="city" class='page'>
+					<div>
+						<div class="cityGroup" >
+							<h1>GPS定位你所在的城市</h1>
+							<div class="cityss" >
+								<a class="citys" >
+									<span>深圳</span> 
+								</a>
+							</div>					
+						</div>
+						
+						<div class="cityGroup" >
+							<h1>热门城市</h1>
+							<div class="cityss" >
+								<a class="citys" >
+									<span>北京</span> 
+								</a>
+								<a class="citys" >
+									<span>上海</span> 
+								</a>
+								<a class="citys" >
+									<span>广州</span> 
+								</a>
+								<a class="citys" >
+									<span>深圳</span> 
+								</a>
+							</div>					
+						</div>
+						
+						<div class="cityGroup" >
+							<h1>按字母排序</h1>
+							<div class="cityss" >
+								{cityTitle}
+							</div>
+							
+						</div>						
+	
+						{cityList}
+					</div>
+				</div>		
 			
+
 		)
-   
 
 	}
 	 /*class={'page '+this.state.className}*/
@@ -50,33 +113,43 @@ export default class City extends Component{
 		this.setState({className: 'leave'});
 		setTimeout(()=>{
 			//返回操作
-			this.state.history.goBack();
+			this.state.history.goBack();4
 		}, 400);
 	}
 	
 	componentWillMount(){
 		
 		homeService.getCity()
-		.then((res)=>{			
-			this.setState({cityData:res});
-			
+		.then((res)=>{	
+			this.setState({cityData:res});		
+			cityScroll.refresh();
 		})
-		
-
 	}
+	
 	componentDidMount(){
-		
-		
-		cityScroll = new IScroll(this.refs.citySc, {
+		 
+		cityScroll = new IScroll('#city', {
 			
 		})
 		cityScroll.on('scrollStart',()=>{
 			cityScroll.refresh()
 		})
-
 	}
 	
 	
+	getCityname(val){
+		store.dispatch({
+			type:'changecity',
+			val:val
+		})
+		this.props.history.push('/')
+	}
+	scroll(index){
+		cityScroll.refresh();
+		cityScroll.scrollTo(0,-this.refs['city'+index].offsetTop,600)
+
+	}
+
 }
 
 

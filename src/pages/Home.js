@@ -1,5 +1,4 @@
 import React, {Component} from 'react'
-import ReactSwipe from 'react-swipe'
 
 import homeService from '../services/homeService.js'
 
@@ -15,7 +14,7 @@ export default class Home extends Component{
 		this.state = {
 			bannerData:[],
 			homeMain1:[],
-			homeMain2:[],
+			homeMain2:[]
 			
 		}
 	}
@@ -25,7 +24,7 @@ export default class Home extends Component{
 		let bannerImg = this.state.bannerData.length>0?this.state.bannerData.map((item,index)=>{
 		
 		return (
-				<div key={index} class='swiper-silde'>
+				<div key={index} class='swiper-slide slider'>
 					<img src={item.imageUrl} />
 				</div>
 		)
@@ -108,7 +107,6 @@ export default class Home extends Component{
 		bannerSwiper = new Swiper(this.refs.banner,{
 			
 		})
-		
 		
 		homeScroll = new IScroll(this.refs.homeScroll, {
 			

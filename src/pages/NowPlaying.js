@@ -4,20 +4,21 @@ import homeService from '../services/homeService.js'
 
 
 let movieScroll;
-
+let i=1;
 export default class NowPlaying extends Component{
 	constructor(){
 		super();
 		this.state = {
-			now:[]			 
+			now:[],
+			more:''	
 		}
 	}
 	
-	render(){
-		
+	render(){		
+
 		let nowPlaying = this.state.now?this.state.now.map((item,index)=>{
 			return (
-				<div class="movieBox">
+				<div class="movieBox"  key={index} >
 					<div class="mImg">
 						<img src={item.poster.thumbnail} />
 					</div>
@@ -30,10 +31,10 @@ export default class NowPlaying extends Component{
 						</h3>
 						<p>{item.intro}</p>
 						<span>{item.scheduleCount}家影院上映</span>
-						<span>{item.watchCount}人购票</span>
-						
+						<span>{item.watchCount}人购票</span>	
+
 					</div>
-					
+
 				</div>
 			)
 		}):'';
@@ -58,12 +59,6 @@ export default class NowPlaying extends Component{
 			
 		})
 				
-		homeService.getcomingSoon2()
-		.then((res)=>{
-			console.log(res);
-			this.setState({soon:res});
-		})
-		
 	}
 	
 	componentDidMount(){
@@ -73,7 +68,30 @@ export default class NowPlaying extends Component{
 		})
 		movieScroll.on('scrollStart',()=>{
 			movieScroll.refresh()
+			
+			if(movieScroll.y>movieScroll.maxScrollY){
+				i++;
+				if(movieScroll.y>movieScroll.maxScrollY){
+					i++
+					if(i<=3){
+						this.setState({more:'加载更多数据'})
+						setTimeout(()=> {
+							// 加载更多热映数据
+							homeService.getnowPlaying2(i).then((res)=>{
+								this.setState({now:this.state.now.concat(res)})
+							})
+						}, 500);
+						
+					}else{
+						this.setState({more:'没有更多数据了'})
+					}
+				}
+	
+			}
 		})
+
+
+
 	}
 
 	

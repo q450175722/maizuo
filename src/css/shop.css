@@ -1,0 +1,146 @@
+.arrowRight{
+    display: inline-block;
+    float: right;
+    margin-right: 20px;
+}
+.arrowRight:after {
+    content: '';
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-top: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+}
+.slider img{
+    width: 100%;
+}
+.nav{
+    display: flex;
+    flex-wrap: wrap; 
+    padding: 15px 0;       
+}
+.nav .icon{
+    width: 25%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    line-height: 20px;
+    padding: 10px 0;
+}
+.nav .icon img{
+    width: 43%;
+}
+
+.line{
+    height: 5px;
+    background:#f2f2f2;
+}
+.adver{
+    display: flex;
+    padding: 5px 0;
+    align-items: center;
+    justify-content: space-around;
+}
+.adver img{
+    width: 48%;
+}
+.superWrap h1{
+    height: 15px;
+    font-size: 12px;
+    line-height: 15px;    
+    text-align: center;
+}
+
+.super{
+    display: flex;
+    padding: 5px;
+    align-items: center;
+    justify-content: space-around;
+}
+.super .s_left{
+    display: flex;  
+    align-content: center;
+    justify-content: space-around; 
+}
+.super .s_right{
+    height: 100%;
+    display: flex;  
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+.super img{
+    width: 96%;
+    height: 100%; 
+}
+.super .s_right img:nth-of-type(1){
+    margin-bottom: 5px; 
+}
+.product{
+    padding-bottom: 10px;
+}
+.product img{
+    width: 100%;
+}
+.product .p_banner{
+    width: 100%;  
+    padding:7px;
+    box-sizing: border-box; 
+    padding-top: 7px;   
+}
+
+.product .p_listWrap{
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+.product .p_listWrap .p_list{
+    width: 100%;
+    overflow-x: scroll;
+    white-space: nowrap;
+    justify-content: space-around;
+}
+.p_list .p_Info{
+    width: 30%;
+    display: inline-block;
+}
+.p_list .p_Info .p_pic{
+    padding: 0 10% ;
+    box-sizing: border-box;
+}
+.p_list .p_Info .p_pic img{
+   width: 100%;
+}
+.p_list .p_Info p{
+    height: 30px;
+    width: 81%;
+    line-height: 30px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.p_list .p_Info span{
+    color: #ff6640;
+}
+.p_list .round{
+    position: relative;
+}
+.p_list .round .rou{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -95%;
+    margin-left: -35%;
+    display: block;
+    width: 80px;
+    height: 80px;
+    border-radius:50%;
+    border:1px solid #ccc; 
+    text-align: center;
+    line-height: 80px;
+}

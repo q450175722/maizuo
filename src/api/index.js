@@ -2,11 +2,20 @@
 const homeBannerApi = "/v4/api/billboard/home"
 const nowPlayingApi = "/v4/api/film/now-playing"
 const comingSoonApi = "/v4/api/film/coming-soon"
-const cityApi = "v4/api/city"
-const cinemaApi = "v4/api/cinema"
+const cityApi = "/v4/api/city"
+const cinemaApi = "/v4/api/cinema"
+//商城
+const shopApi = "/api/ad/list"
+//电影详情
+const moviesDetailsApi ="v4/api/film"
+
+
 
 /*
  * 首页
+ * http://m.maizuo.com/v4/api/film/3826?__t=1503741320379    电影详情
+ * http://aura.maizuo.com/api/ad/list    商城---导航图标
+ * http://aura.maizuo.com/api/recommend/home?page=1&num=20   商城---好货精选
  * http://m.maizuo.com/v4/api/cinema?__t=1503492380020	影院
 http://s11.cnzz.com/z_stat.php?id=1254948863 字母
 http://m.maizuo.com/v4/api/city?__t=1503301224507  城市
@@ -25,5 +34,6 @@ export default {
 	nowPlayingApi,
 	comingSoonApi,
 	cinemaApi,
-	cityApi
+	cityApi,
+	shopApi
 }

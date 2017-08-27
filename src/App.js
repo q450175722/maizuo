@@ -5,6 +5,8 @@ import {HashRouter as Browser , Route} from 'react-router-dom'
 import AppHeader from './views/common/AppHeader.js'
 import Sidebar from './views/common/Sidebar.js'
 
+
+
 import Home from './pages/Home.js'
 import Movies from './pages/Movies.js'
 import Cinema from './pages/Cinema.js'
@@ -13,7 +15,7 @@ import My from './pages/My.js'
 import Card from './pages/Card.js'
 import City from './pages/City.js'
 
-import './css/app.css'
+import './css/app.less'
 
 export default class App extends Component{
 	constructor(){
@@ -60,6 +62,5 @@ export default class App extends Component{
 			this.setState({headerTitle});
 		}
 	}
-
 }
 

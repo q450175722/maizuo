@@ -4,12 +4,13 @@ import homeService from '../services/homeService.js'
 
 
 let movieScroll;
-
+let i=1;
 export default class ComimgSoon extends Component{
 	constructor(){
 		super();
 		this.state = {
-			soon:[]
+			soon:[],
+			more:''
 		}
 	}
 	
@@ -21,7 +22,7 @@ export default class ComimgSoon extends Component{
 			let day = date.getMonth()+1 +"月" +date.getDate()+"日";
 			let week = date.getDay();
 			return (
-				<div class="movieBox">
+				<div class="movieBox" key={index} >
 					<div class="mImg">
 						<img src={item.poster.thumbnail} />
 					</div>
@@ -63,8 +64,24 @@ export default class ComimgSoon extends Component{
 		movieScroll = new IScroll(this.refs.movieSc, {
 			
 		})
+		
 		movieScroll.on('scrollStart',()=>{
-			movieScroll.refresh()
+			movieScroll.refresh()			
+			if(movieScroll.y>movieScroll.maxScrollY){
+				i++
+				if(i<=3){
+					this.setState({more:'加载更多数据'})
+					setTimeout(()=> {
+						// 加载更多热映数据
+						homeService.getcomingSoon2(i).then((res)=>{
+							this.setState({soon:this.state.soon.concat(res)})
+						})
+					}, 500);
+					
+				}else{
+					this.setState({more:'没有更多数据了'})
+				}
+			}
 		})
 	}
 	

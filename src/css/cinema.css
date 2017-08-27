@@ -1,0 +1,65 @@
+.cinemaBox .arrowRight{
+	display: inline-block;
+	float: right;
+	margin-right: 20px;
+}
+.cinemaBox .arrowRight:after {
+    content: '';
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-top: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+}
+.areaTitle{	
+	height: 40px;
+	background: #e1e1e1;
+	text-indent: 10px;
+	font-size: 16px;
+	color: #000;
+	line-height: 40px;
+	border-bottom:1px solid #fff;
+	
+}
+.areaWrap{
+	color: #ccc;
+}
+.cinemaBox{
+	padding:10px 20px;
+	box-sizing: border-box;
+	font-size: 10px;
+	border-bottom:1px solid #ccc;
+}
+
+.cinemaBox .monicker{
+	color: #000;
+	font-size: 16px;
+	line-height: 30px;
+}
+.cinemaBox .lab{
+	height: 20px;
+}
+.cinemaBox .lab span{
+	color: #fff;
+	display: inline-block;
+	margin: 3px;
+	border-radius: 3px;
+	line-height: 16px;
+}
+.cinemaBox .lab span:nth-of-type(1){
+	background: #51add0;	
+}
+.cinemaBox .lab span:nth-of-type(2){
+	background: #ff9658;	
+}
+.cinemaBox p {		
+	height: 30px;
+	width:75%;
+	line-height:30px;
+	overflow:hidden;
+	white-space:nowrap;
+	text-overflow:ellipsis;
+	
+}

@@ -1,23 +1,6 @@
-#home .home-banner{
-	width: 100%;
-	display: block;
-	overflow: hidden;
-		
-}
-#home .home-banner .swiper-wrapper{
-	width: 300%;
-}
-#home .home-banner .swiper-silde{
-	width: 100%;
-    position: relative;
-    top: 0;
-    left: 0;
-    display: block;
-}
-#home .home-banner .swiper-silde img{
+
+#home .slider img{
     width: 100%;
-/*	display: block;
-	float: left;*/
 }
 .main1,.main2{
 	padding: 10px;
